@@ -7,7 +7,7 @@
     "compatibleCoreVersion": "0.7.9",
     "minimumCoreVersion": "0.5.0",
     "url": "https://github.com/OpticalShadows/ACleanModernUI",
-    "manifest": "https://raw.githubusercontent.com/jinkergm/5eBackgrounds/master/module.json",
+    "manifest": "https://raw.githubusercontent.com/OpticalShadows/ACleanModernUI/main/module.json",
     "download": "https://github.com/jinkergm/5eBackgrounds/archive/master.zip",
     "styles": [
         "styles/clean-modern.css"
