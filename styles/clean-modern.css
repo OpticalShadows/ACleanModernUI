@@ -747,7 +747,6 @@ button:hover {
 /*======================== CAMERA WINDOW =====================*/
 #camera-views{
   left:0px;
-
 }
 
 #camera-views .video-container{border-radius: 15px;background: none;}
@@ -780,7 +779,10 @@ button:hover {
   background: #ffffff73;
   border-radius: var(--corner-radius);
 }
-
+#camera-views .video-container img.user-avatar, #camera-views .video-container video.user-camera{
+  background:var(--almost-black);
+  border-radius: 15px 15px 0 0;
+}
 /*================== NOTIFICATIONS ==================*/
 .notification.warning{
   background:#e5b70fd1;
