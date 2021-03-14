@@ -210,13 +210,7 @@ color: var(--accent-color);
   flex-direction: column-reverse;
 }
 #navigation #scene-list{
-  /* display: table !important; */
-  /* flex: 1; */
   flex-wrap: wrap;
-  /* overflow: auto; */
-  /* max-width: 500px; */
-  /* overflow: hidden; */
-  pointer-events: all;
 }
 #navigation #nav-toggle{
   left: calc(50% - 42px);
@@ -224,21 +218,23 @@ color: var(--accent-color);
   background: var(
   --blur-background) !important;
   border: none;
-  border-radius: 10px;
-  height: 30px;
+  border-radius: 5px;
+  height: 16px;
+  top: -8px;
   width: 60px;
-  font-size: 14pt;
+  flex: 0 0 20px;
+  font-size: 20pt;
   color: var(
   --almost-black);
-  /* line-height: 4px; */
 }
-
+#navigation #nav-toggle:hover{
+  text-shadow:0 0 10px white;
+}
 #navigation .nav-item{
   width: 120px;
-  /* position: relative !important; */
   box-shadow: var(--drop-shadow);
   height: 30px;
-  font-size: .5vw;
+  font-size: 9pt;
   text-align: center;
   flex-wrap: nowrap;
   margin: 10px;
@@ -283,24 +279,28 @@ overflow: auto;
 
 /*======================hotbar====================*/
 #hotbar{
-  left: calc(50% - 350px);
-  height: 60px;
-  width: 700px;
+  left: calc(50% - 290px);
+}
+#hotbar #action-bar{
+  
+flex-wrap: nowrap;
 }
 
 #hotbar #macro-list{
   background:none;
   border:none;
-  flex: 0 0 600px;
+  border-radius: 0;
+  flex: 0 0 540px;
+  margin: 0;
 }
 
 #hotbar .macro{
-  margin:5px;
+  margin: 0 2px 0 2px;
   border:none;
   box-shadow:none;
   background: var(--blur-background);
-  border-radius: 15px;
-  /*backdrop-filter:blur(15px);*/
+  border-radius: var(--corner-radius);
+  backdrop-filter:blur(15px);
 }
 
 #hotbar .macro .macro-icon{
@@ -322,11 +322,11 @@ overflow: auto;
 }
 #hotbar .bar-controls{
   border: none;
-  height: 100%;
-  margin: 0;
   background: var(--blur-background);
   color: var(--almost-black);
-  border-radius: var(--corner-radius);
+  border-radius: 8px;
+  box-shadow: none;
+  backdrop-filter: blur(3px);
 }
 #hotbar .bar-controls span.page-number{
   line-height: 14px;
@@ -551,7 +551,6 @@ button:focus {
 #settings button{
   margin: 6px!important;
 }
-
 #menu{
   background: var(--blur-background);
   backdrop-filter: blur(var(--blur-amount));
