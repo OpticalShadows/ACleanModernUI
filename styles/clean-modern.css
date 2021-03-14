@@ -189,6 +189,9 @@ textarea:focus {
   /* padding: 10px; */
   margin: 10px;
 }
+#controls .active .control-tools{
+  /* background: var(--blur-background) !important; */
+}
 #controls .scene-control.active, #controls .control-tool.active, #controls .scene-control:hover, #controls .control-tool:hover{
   
 border: none;
@@ -603,7 +606,14 @@ button:hover {
     color: #007a21;
     background: #00ff1669;
 }
-
+.dice-tooltip .dice-rolls .roll.max{
+  color: #005100;
+  filter: sepia(1.5) hue-rotate(60deg);
+}
+.dice-tooltip .dice-rolls .roll.min{
+  color: #780000;
+  filter: sepia(1) hue-rotate(300deg);
+}
 .dice-roll .dice-total.fumble {
     color: #720000;
     background:#ff000070;
@@ -843,4 +853,20 @@ button:hover {
     left: 0px !important;
     flex: 0 0 32px;
     right: 0px !important;
+}
+
+/*==================== Simple Dice Roller ===========*/
+.simple-dice-roller-popup{
+  background: var(--blur-background) !important;
+  color: var(--almost-black) !important;
+  border: none !important;
+  border-radius: var(--corner-radius) !important;
+  margin: 10px !important;
+  backdrop-filter: blur(10px);
+}
+.simple-dice-roller-popup li:hover {
+  border:none !important;
+  border-right:1px solid #333;
+  background: var(--blur-foreground);
+  box-shadow:none !important;
 }
