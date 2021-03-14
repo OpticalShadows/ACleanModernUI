@@ -31,7 +31,7 @@ a:hover {
   width: 28px !important;
   height:400px !important;
   background: var(--blur-background);
-  backdrop-filter:blur(5px) !important;
+  /*backdrop-filter:blur(5px) !important;*/
 }
 #sidebar.collapsed #sidebar-tabs > .item.active {
     border:none;    
@@ -248,7 +248,7 @@ color: var(--accent-color);
   background: var(--blur-background) !important;
   color: var(--almost-black);
   font-weight: 700;
-  backdrop-filter: blur(10px);
+  /*backdrop-filter: blur(10px);*/
 }
 #navigation #scene-list .scene.view, #navigation #scene-list .scene.context{
   box-shadow:0 0 4px var(--accent-color);
@@ -300,7 +300,7 @@ overflow: auto;
   box-shadow:none;
   background: var(--blur-background);
   border-radius: 15px;
-  backdrop-filter:blur(15px);
+  /*backdrop-filter:blur(15px);*/
 }
 
 #hotbar .macro .macro-icon{
@@ -445,7 +445,7 @@ footer{
 /*========================== Players ==================*/
 #players{
   background:var(--blur-background);
-  backdrop-filter: blur(var(--blur-amount));
+  /*backdrop-filter: blur(var(--blur-amount));*/
   border-radius: var(--corner-radius);
   border: none;
   box-shadow: var(--drop-shadow);
@@ -546,6 +546,20 @@ button:focus {
 }
 .filepicker .tiles-list li.picked{
   box-shadow:none;
+}
+
+#settings button{
+  margin: 6px!important;
+}
+
+#menu{
+  background: var(--blur-background);
+  backdrop-filter: blur(var(--blur-amount));
+  color: var(--almost-black);
+  box-shadow: var(--drop-shadow);
+}
+#menu #menu-items li:hover {
+  text-shadow: 0 0 10px #ffffff;
 }
 /*===================== D&D SPECIFIC =================*/
 
@@ -701,7 +715,7 @@ button:hover {
   background: var(--blur-foreground-bright);
   border:none;
   border-radius: var(--corner-radius);
-  backdrop-filter: blur(var(--blur-amount))!important;
+  /*backdrop-filter: blur(var(--blur-amount))!important;*/
   box-shadow: var(--drop-shadow);
 }
 .placeable-hud .control-icon img,#token-hud .status-effects .effect-control{
