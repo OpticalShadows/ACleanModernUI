@@ -5,7 +5,7 @@
   --almost-black:#1e1e1e;
   --blur-background: #ffffffab;
   --blur-foreground: #ffffff80;
-  --blur-foreground-bright: #ffffffe3;
+  --blur-foreground-bright: #ffffffc9;
   --drop-shadow: 0 0 9px #0000006e;
 }
 
@@ -266,6 +266,8 @@ color: var(--accent-color);
 #context-menu{
   
 background: var(--blur-foreground-bright);
+  
+backdrop-filter: blur(5px);
   
 color: var(--almost-black);
   
@@ -722,16 +724,21 @@ button:hover {
   z-index: 1;
 }
 #token-hud .status-effects{
-  background: var(--blur-foreground-bright);
+  background: var(--blur-foreground-bright) !important;
   border:none;
+  color:  black !important;
   border-radius: var(--corner-radius);
-  /*backdrop-filter: blur(var(--blur-amount))!important;*/
+  /* backdrop-filter: blur(var(--blur-amount))!important; */
   box-shadow: var(--drop-shadow);
 }
 .placeable-hud .control-icon img,#token-hud .status-effects .effect-control{
   -webkit-filter: brightness(0);
+  
 }
-
+/* Monks status effects */
+#token-hud.monks-little-details .status-effects .effect-name{
+  color: var(--almost-black) !important;
+}
 #pause{
   background: none;
   z-index: 10;
