@@ -43,6 +43,9 @@ a:hover {
   box-shadow: none;
   color: var(--almost-black);
 }
+#settings{
+  margin: 0 10px 0 0;
+}
 #sidebar-tabs > .item.active{
   color: var(--accent-color);
   border: none;
@@ -855,20 +858,29 @@ button:hover {
   display:flex;
 }
 
-/*=================== CALENDAR/TIME =================/
+/*=================== CALENDAR/WEATHER =================*/
 
 #calendar-time-container{
-    height: auto!important;
-    display: flex !important;
-    border-radius: 0 !important;
-    background: none !important;
-    color: rgb(255 255 255) !important;
-    top: 0px !important;
-    left: 0px !important;
-    flex: 0 0 32px;
-    right: 0px !important;
+    background:var(--blur-background) !important;
+    border-radius: var(--corner-radius) !important;
+    backdrop-filter:blur(var(--blur-amount));
 }
-
+.calendar--header{
+  background: var(--blur-foreground) !important;
+  color: var(--almost-black) !important;
+}
+.calendar-btn{
+  color:var(--almost-black) !important;
+}
+.clock--time-display .time{
+  color: var(--almost-black);
+}
+#clock-run-indicator{
+  color:#da7474 !important;
+}
+.calendar-weather--content{
+  background: #0000007a !important;
+}
 /*==================== Simple Dice Roller ===========*/
 .simple-dice-roller-popup{
   background: var(--blur-background) !important;
