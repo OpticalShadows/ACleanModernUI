@@ -281,9 +281,10 @@ overflow: auto;
 }
 
 /*======================hotbar====================*/
-#hotbar{
+#hotbar,.players-hidden #hotbar{
   left: calc(50% - 290px);
 }
+
 #hotbar #action-bar{
   
 flex-wrap: nowrap;
@@ -748,6 +749,7 @@ button:hover {
   left:0px;
 
 }
+
 #camera-views .video-container{border-radius: 15px;background: none;}
 #camera-views.camera-size-medium .camera-box-dock,
 #camera-views.camera-size-small .camera-box-dock,
@@ -756,7 +758,7 @@ button:hover {
   border: none;
   box-shadow: var(--drop-shadow);
   border-radius: var(--corner-radius);
-  background:#ffffff7a;
+  background:#ffffffa6;
   backdrop-filter:blur(var(--blur-amount));
 }
 .camera-view .player-name{
