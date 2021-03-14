@@ -739,6 +739,9 @@ button:hover {
 #token-hud.monks-little-details .status-effects .effect-name{
   color: var(--almost-black) !important;
 }
+#token-hud.monks-little-details.highlight-image .status-effects .effect-control.active, #token-hud.monks-little-details.highlight-image .status-effects .pf2e-effect-control.active{
+  filter:brightness(0%) !important;
+}
 #pause{
   background: none;
   z-index: 10;
@@ -880,4 +883,34 @@ button:hover {
   border-right:1px solid #333;
   background: var(--blur-foreground);
   box-shadow:none !important;
+}
+
+/*================= Monks Token Bar ============= */
+#tokenbar .bar-controls{
+  background: var(--blur-background)!important;
+  color: var(--almost-black) !important;
+  backdrop-filter: blur(5px);
+  border-radius: 8px !important;
+  overflow:hidden;
+  box-shadow: var(--drop-shadow) !important;
+  border:none !important;
+}
+#tokenbar .bar-controls div#tokenbar-move-handle{
+  background: var(--blur-foreground) !important;
+}
+#tokenbar .token{
+  background: var(--blur-background) !important;
+  box-shadow: var(--drop-shadow) !important;
+  border: none !important;
+  border-radius: 8px !important;
+}
+#tokenbar .token .token-stats{
+  background: none !important;
+  filter:brightness(0);
+}
+#tokenbar .token-list{
+  border:none !important;
+}
+#tokenbar .token .token-icon{
+  box-shadow: none !important;
 }
