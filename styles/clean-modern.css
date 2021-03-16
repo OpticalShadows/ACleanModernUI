@@ -3,9 +3,9 @@
   --blur-amount:50px;
   --corner-radius:15px;
   --almost-black:#1e1e1e;
-  --blur-background: #ffffffd6;
-  --blur-background-thick: #ddddddf0;
-  --blur-foreground: #ffffffeb;
+  --blur-background: #ffffffa8;
+  --blur-background-thick: #bdbdbdf0;
+  --blur-foreground: #ffffffa3;
   --blur-foreground-bright: #ffffffde;
   --drop-shadow: 0 0 9px #0000006e;
 }
@@ -226,6 +226,7 @@ textarea:focus {
   flex-wrap: nowrap;
   flex-direction: column-reverse;
   pointer-events: all;
+  overflow: visible;
 }
 
 #navigation.collapsed{
@@ -238,9 +239,10 @@ textarea:focus {
   display: flex !important;
   flex-flow: column wrap;
   align-items: center;
-  height: 100px;
-  overflow:auto;
-  
+  height: auto;
+  max-height: 100px;
+  /* overflow-x: scroll; */
+  /* overflow-y: visible !important; */
 }
 
 #navigation #nav-toggle{
@@ -639,6 +641,7 @@ button:focus {
 
 #settings button{
   /* margin: 6px!important; */
+  margin: 6px 0 !important;
 }
 #menu{
   background: var(--blur-background);
