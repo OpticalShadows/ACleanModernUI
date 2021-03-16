@@ -3,9 +3,10 @@
   --blur-amount:50px;
   --corner-radius:15px;
   --almost-black:#1e1e1e;
-  --blur-background: #ffffffab;
-  --blur-foreground: #ffffff80;
-  --blur-foreground-bright: #ffffffc9;
+  --blur-background: #ffffffd6;
+  --blur-background-thick: #ddddddf0;
+  --blur-foreground: #ffffffeb;
+  --blur-foreground-bright: #ffffffde;
   --drop-shadow: 0 0 9px #0000006e;
 }
 
@@ -13,14 +14,17 @@
   visibility: hidden;
 }
 a:hover {
-  text-shadow: 0 0 8px white;
+  color: var(--blur-foreground-bright);
+  text-shadow:none;
 }
 #sidebar{
-  top: 25px !important;
-  bottom: 25px !important;
-  right: 25px !important;
+  top: 10px !important;
+  bottom: 10px !important;
+  right: 10px !important;
   height: auto !important;
   background-image:none;
+  margin: 0;
+  padding: 0;
   background: var(--blur-background);
   backdrop-filter: blur(var(--blur-amount));
   border: none;
@@ -30,8 +34,7 @@ a:hover {
 #sidebar.app.collapsed {
   width: 28px !important;
   height:400px !important;
-  background: var(--blur-background);
-  /*backdrop-filter:blur(5px) !important;*/
+  background: var(--blur-background-thick);
 }
 #sidebar.collapsed #sidebar-tabs > .item.active {
     border:none;    
@@ -44,7 +47,7 @@ a:hover {
   color: var(--almost-black);
 }
 #settings{
-  margin: 0 10px 0 0;
+  /* margin: 0 10px 0 0; */
 }
 #sidebar-tabs > .item.active{
   color: var(--accent-color);
@@ -73,9 +76,8 @@ textarea:focus {
 
 #chat-log .message {
     border: none;
-    border-radius: var(--corner-radius);
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin: 5px;
     background: var(--blur-foreground);
     background-image: none;
     /* color: white; */
@@ -157,25 +159,26 @@ textarea:focus {
 /*=====================controls=======================*/
 
 #controls{
-  top: 0px;
+  margin: 5px 0 0 0;
+  top: 0;
   left: 0px;
-  /* background: white; */
+  padding: 0;
 }
 #controls .control-tool.toggle{
   background:var(--blur-background);
   border:none;
 }
 #controls .control-tool.toggle.active, #controls .control-tool.toggle:hover{
-  background:var(--accent-color);
-  color:white;
+  background:var(--accent-color) !important;
+  color:white ;
 }
 #controls .scene-control, #controls .control-tool{
   width:50px;
   height: 50px;
   top: 0px;
   line-height: 50px;
-  margin: 10px;
-  background: var(--blur-background);
+  margin: 5px 10px;
+  background: var(--blur-background-thick);
   /* backdrop-filter: blur(var(--blur-amount)); */
   border-radius: var(--corner-radius);
   box-shadow: var(--drop-shadow);
@@ -186,52 +189,80 @@ textarea:focus {
 #controls .control-tools{
   top: 0px;
   left: 60px;
-  /* width: 40px; */
-  /* height: 200px; */
-  /* position: fixed; */
-  /* padding: 10px; */
-  margin: 10px;
+  padding: 0;
+  margin: 0;
 }
 #controls .active .control-tools{
   /* background: var(--blur-background) !important; */
+  margin: 0;
+  display: grid;
+  padding: 0;
 }
-#controls .scene-control.active, #controls .control-tool.active, #controls .scene-control:hover, #controls .control-tool:hover{
+#controls .scene-control.active, 
+#controls .control-tool.active{
+  border: none;
+  width: 50px;
+  box-shadow: var(--drop-shadow);
+  margin: 5px 10px;
+  padding: 0;
+  color: var(--accent-color);
+}
+#controls .scene-control:hover, 
+#controls .control-tool:hover{
+  border:none;
+  box-shadow:var(--drop-shadow) !important;
   
-border: none;
-  
-box-shadow: none;
-  
-color: var(--accent-color);
 }
 /*==================== NVAVIGATION ================*/
 #navigation{
   top: 0;
   margin: 0;
+  padding: 0;
   position: absolute;
   left: 50%;
   transform: translate(-50%,0);
-  width: auto;
+  width: calc(100% - 600px);
+  max-width: 50%;
   flex-wrap: nowrap;
-  /* display: grid; */
   flex-direction: column-reverse;
+  pointer-events: all;
+}
+
+#navigation.collapsed{
+  height: 20px !important;
+  margin: 0;
+  padding: 0;
 }
 #navigation #scene-list{
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  display: flex !important;
+  flex-flow: column wrap;
+  align-items: center;
+  height: 100px;
+  overflow:auto;
+  
 }
+
 #navigation #nav-toggle{
-  left: calc(50% - 42px);
-  transform: translate(-50px,0);
+  left: calc(50% - 30px);
+  margin: 0;
   background: var(
   --blur-background) !important;
-  border: none;
-  border-radius: 5px;
-  height: 16px;
-  top: -8px;
   width: 60px;
-  flex: 0 0 20px;
   font-size: 20pt;
   color: var(
   --almost-black);
+  height: 20px;
+  flex: 0 0 20px;
+  line-height: 0;
+  border-radius: 0 0 8px 8px;
+}
+#navigation.collapsed #nav-toggle{
+  margin:0;
+  /* left: 0; */
+  height:100%;
+  /* line-height: 1.7 !important; */
+  background: var(--blur-background-thick) !important;
 }
 #navigation #nav-toggle:hover{
   text-shadow:0 0 10px white;
@@ -243,7 +274,7 @@ color: var(--accent-color);
   font-size: 9pt;
   text-align: center;
   flex-wrap: nowrap;
-  margin: 10px;
+  margin: 5px 10px;
   white-space:nowrap;
   border: none !important;
   border-radius: 10px;
@@ -251,6 +282,9 @@ color: var(--accent-color);
   color: var(--almost-black);
   font-weight: 700;
   /*backdrop-filter: blur(10px);*/
+}
+#navigation #scene-list .scene:last-child{
+  margin:5px 10px;
 }
 #navigation #scene-list .scene.view, #navigation #scene-list .scene.context{
   box-shadow:0 0 4px var(--accent-color);
@@ -287,12 +321,18 @@ overflow: auto;
 
 /*======================hotbar====================*/
 #hotbar,.players-hidden #hotbar{
-  left: calc(50% - 290px);
+  left: calc(50% - 305px);
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+  width: 610px;
 }
 
 #hotbar #action-bar{
   
 flex-wrap: nowrap;
+  
+height: 100%;
 }
 
 #hotbar #macro-list{
@@ -301,15 +341,21 @@ flex-wrap: nowrap;
   border-radius: 0;
   flex: 0 0 540px;
   margin: 0;
+  padding: 0;
+}
+#hotbar .macro:hover, #hotbar .macro.active:hover {
+  border: 2px solid var(--accent-color) !important;
+  box-shadow:none;
 }
 
 #hotbar .macro{
   margin: 0 2px 0 2px;
   border:none;
+  height: 100%;
   box-shadow:none;
-  background: var(--blur-background);
+  background: var(--blur-background-thick);
   border-radius: var(--corner-radius);
-  backdrop-filter:blur(15px);
+  /* backdrop-filter:blur(15px); */
 }
 
 #hotbar .macro .macro-icon{
@@ -331,7 +377,7 @@ flex-wrap: nowrap;
 }
 #hotbar .bar-controls{
   border: none;
-  background: var(--blur-background);
+  background: var(--blur-background-thick);
   color: var(--almost-black);
   border-radius: 8px;
   box-shadow: none;
@@ -388,8 +434,8 @@ li.folder > .folder-header{
   border: none;
 }
 .subdirectory{
-  border-left:none;
-  box-shadow: inset 0px 7px 10px #00000038;
+  border: none;
+  box-shadow: inset 0px 7px 6px 0px #00000038;
 }
 #scenes .subdirectory{
   border:none;
@@ -397,8 +443,8 @@ li.folder > .folder-header{
 }
 #scenes .scene h3{
   text-shadow:none;
-  color: #ffffff;
-  text-shadow: 0 0 20px #00000059;
+  font-size: 18pt;
+  color: var(--almost-black);
 }
 .scene-sheet .form-header h3,
 .scene-sheet .form-header{
@@ -410,17 +456,31 @@ form .form-group .form-fields button{
 }
 form button{
   border:none;
+  margin: 2px;
 }
 
-input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"]{
-  
-border: none;
-  
-border-radius: var(--corner-radius);
+input[type="text"],
+input[type="number"], 
+input[type="password"], 
+input[type="date"],
+input[type="time"]{
+  border: none !important;
+  border-radius: var(--corner-radius);
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+  box-shadow: 0 0 5px 2px white;
 }
 select{
   border:none;
   border-radius: var(--corner-radius);
+}
+select:focus {
+  box-shadow:0 0 5px 2px white;
+  outline: none;
 }
 
 input[type="color"][data-edit][data-edit]{
@@ -440,8 +500,23 @@ input[type="color"][data-edit][data-edit]{
 #playlists li.playlist .sound-control{
   color: var(--almost-black);
 }
-#compendium h3, h1, h2, h3, h4{
+#compendium h1, h2, h4{
   color: var(--almost-black);
+  border: none;
+  background: none;
+}
+#compendium h3{
+  border:none;
+  color: var(--almost-black);
+  background:var(--blur-background);
+}
+#compendium li.compendium-pack{
+  border:none;
+}
+#settings h2{
+  border-top:none;
+  border-bottom: 1px solid var(--almost-black);
+  background:none;
 }
 
 footer{
@@ -453,14 +528,17 @@ footer{
 }
 /*========================== Players ==================*/
 #players{
-  background:var(--blur-background);
+  background: var(--blur-background-thick);
   /*backdrop-filter: blur(var(--blur-amount));*/
   border-radius: var(--corner-radius);
   border: none;
   box-shadow: var(--drop-shadow);
+  left: 10px;
+  bottom: 10px;
 }
 #players h3{
   border:none;
+  color: var(--almost-black);
 }
 #players h3 .players-mode{
   color: var(--almost-black);
@@ -478,7 +556,7 @@ box-shadow: none;
 }
 .window-app{
   border-radius: var(--corner-radius);
-  background: none;
+  background: none !important;
   backdrop-filter: blur(var(--blur-amount));
   box-shadow: var(--drop-shadow);
   border: none;
@@ -499,7 +577,7 @@ border: none;
 }
 
 .window-app .window-content{
-  background: var(--blur-background);
+  background: var(--blur-background) !important;
   border-radius: 0 0 var(--corner-radius) var(--corner-radius);
   border: none;
 }
@@ -524,7 +602,9 @@ button{
 button:hover,
 button:focus {
   outline: none;
-  box-shadow: 0 0 5px white;
+  box-shadow: none;
+  background: var(--blur-foreground-bright) !important;
+  cursor:pointer;
 }
 /*====================== Misc ========================*/
 
@@ -558,7 +638,7 @@ button:focus {
 }
 
 #settings button{
-  margin: 6px!important;
+  /* margin: 6px!important; */
 }
 #menu{
   background: var(--blur-background);
@@ -568,6 +648,12 @@ button:focus {
 }
 #menu #menu-items li:hover {
   text-shadow: 0 0 10px #ffffff;
+}
+#module-management .package-list .package-title{
+  text-decoration:none;
+}
+.package-list .package{
+  border:none;
 }
 /*===================== D&D SPECIFIC =================*/
 
@@ -597,13 +683,23 @@ button:focus {
 button:hover {
   box-shadow:blue;
 }
-
+.dnd5e.sheet.actor ul.skills-list li.skill h4:hover,
+.dnd5e.sheet.actor h4.box-title:hover,
+.dnd5e.sheet.actor .traits i.fas:hover {
+  text-shadow:none;
+  color: var(--blur-foreground-bright);
+}
 .dice-roll .dice-formula {
     margin-bottom: 5px;
     border-radius:var(--corner-radius);
+    border: none;
+}
+.dice-tooltip .part-header .part-total{
+  border:none;
 }
 .dice-roll .dice-total {
     border-radius:var(--corner-radius);
+    border: none;
     flex: 0;
     font-size: 20px;
     font-weight: bold;
@@ -645,6 +741,10 @@ button:hover {
 }
 .dnd5e.sheet.actor .ability-scores .ability{
   border-bottom:1px solid #00000014;
+}
+.dnd5e.sheet .filter-list .filter-item{
+  font-size:10pt;
+  border-bottom: 2px solid var(--blur-foreground);
 }
 .dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-mod,
 .dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-save{
@@ -689,10 +789,43 @@ button:hover {
   text-shadow:none;
   color: var(--accent-color);
 }
-.dnd5e.sheet .sheet-navigation .item.active,.dnd5e.sheet .filter-list .filter-item.active{
+.dnd5e.sheet.actor.character .sheet-header .xpbar{
+  border:none;
+  border-radius: 5px;
+}
+.dnd5e.sheet.actor.character .sheet-header .xpbar .bar{
+  height: 100%;
+  margin:0;
+  border-radius:5px;
+}
+.dnd5e.sheet .sheet-navigation .item.active,
+.dnd5e.sheet .filter-list .filter-item.active{
   border-bottom:2px solid;
 }
-.dnd5e.sheet .items-list .items-header,.dnd5e.sheet .items-list .item,.dnd5e .form-header{
+.dnd5e.sheet .filter-list .filter-item:hover,
+.dnd5e.sheet .sheet-navigation .item:hover{
+  text-shadow:none;
+  color: var(--blur-foreground-bright);
+  cursor:pointer;
+}
+.dnd5e.sheet .items-list .item .item-name .item-image{
+  border-radius:5px;
+}
+.dnd5e.sheet .items-list .item-name h3, 
+.dnd5e.sheet .items-list .item-name h4:hover{
+  text-shadow:none !important;
+  color:var(--blur-foreground-bright);
+}
+.dnd5e.sheet .editable h4.rollable:hover,
+.dnd5e.sheet .editable .rollable:hover > h4 {
+  color: var(--blur-foreground-bright);
+  text-shadow: none;
+}
+.dnd5e.sheet .sheet-navigation .item{
+  border-bottom: 2px solid var(--blur-foreground);
+}
+.dnd5e.sheet .items-list .items-header,
+.dnd5e.sheet .items-list .item,.dnd5e .form-header{
   border:none;
 }
 .dnd5e.sheet.actor .inventory-filters .currency input[type="text"],
@@ -881,6 +1014,19 @@ button:hover {
 .calendar-weather--content{
   background: #0000007a !important;
 }
+.calendar-events-container,
+.calendar-form-container{
+  background:none !important;
+}
+.calendar-collapsable{
+  border:none;
+  margin:2px 0px;
+  padding: 0 2px !important;
+}
+.calendar-collapsable:hover{
+  border:none !important;
+}
+
 /*==================== Simple Dice Roller ===========*/
 .simple-dice-roller-popup{
   background: var(--blur-background) !important;
