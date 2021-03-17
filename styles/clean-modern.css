@@ -1,6 +1,6 @@
 :root{
   --accent-color: #416fc6;
-  --blur-amount:50px;
+  --blur-amount: saturate(200%) blur(50px);
   --corner-radius:15px;
   --almost-black:#1e1e1e;
   --blur-background: #ffffffa8;
@@ -8,6 +8,7 @@
   --blur-foreground: #ffffffa3;
   --blur-foreground-bright: #ffffffde;
   --drop-shadow: 0 0 9px #0000006e;
+  --faintest-color: #00000014;
 }
 
 #logo{
@@ -26,7 +27,7 @@ a:hover {
   margin: 0;
   padding: 0;
   background: var(--blur-background);
-  backdrop-filter: blur(var(--blur-amount));
+  backdrop-filter:var(--blur-amount);  
   border: none;
   border-radius: var(--corner-radius);
   box-shadow: var(--drop-shadow);
@@ -62,7 +63,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb { 
-  background: #ffffff85;
+  background: #ffffff85 !important;
   border: none;
   box-shadow: none;
 }
@@ -215,18 +216,18 @@ textarea:focus {
 }
 /*==================== NVAVIGATION ================*/
 #navigation{
+  align-items: center;
   top: 0;
   margin: 0;
   padding: 0;
   position: absolute;
   left: 50%;
   transform: translate(-50%,0);
-  width: calc(100% - 600px);
   max-width: 50%;
   flex-wrap: nowrap;
+  /* display: flex; */
   flex-direction: column-reverse;
   pointer-events: all;
-  overflow: visible;
 }
 
 #navigation.collapsed{
@@ -235,19 +236,16 @@ textarea:focus {
   padding: 0;
 }
 #navigation #scene-list{
-  /* flex-wrap: wrap; */
-  display: flex !important;
-  flex-flow: column wrap;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
+  /* max-height: 100px; */
   align-items: center;
-  height: auto;
-  max-height: 100px;
-  /* overflow-x: scroll; */
-  /* overflow-y: visible !important; */
+  width: 100%;
 }
-
 #navigation #nav-toggle{
-  left: calc(50% - 30px);
+  /* left: calc(50% - 30px); */
   margin: 0;
+  top: 20px;
   background: var(
   --blur-background) !important;
   width: 60px;
@@ -257,10 +255,11 @@ textarea:focus {
   height: 20px;
   flex: 0 0 20px;
   line-height: 0;
-  border-radius: 0 0 8px 8px;
+  border-radius: 4px 4px 8px 8px;
 }
 #navigation.collapsed #nav-toggle{
   margin:0;
+  top: 0;
   /* left: 0; */
   height:100%;
   /* line-height: 1.7 !important; */
@@ -268,6 +267,7 @@ textarea:focus {
 }
 #navigation #nav-toggle:hover{
   text-shadow:0 0 10px white;
+  color:white;
 }
 #navigation .nav-item{
   width: 120px;
@@ -283,7 +283,10 @@ textarea:focus {
   background: var(--blur-background) !important;
   color: var(--almost-black);
   font-weight: 700;
-  /*backdrop-filter: blur(10px);*/
+  /* backdrop-filter: blur(10px); */
+}
+#navigation .nav-item:hover{
+  
 }
 #navigation #scene-list .scene:last-child{
   margin:5px 10px;
@@ -294,39 +297,42 @@ textarea:focus {
 #navigation #scene-list .scene.view, #navigation #scene-list .scene.context{
   color: var(--accent-color);
   white-space:nowrap;
-
+  /* overflow: auto; */
 }
 #navigation #scene-list .scene ul.scene-players{
   bottom: 0px;
-  top: auto;
   left: 5px;
+}
+#navigation #scene-list .scene a{
+  width:120px;
+  box-sizing: content-box;
+  overflow: hidden;
 }
 
 #context-menu{
   
 background: var(--blur-foreground-bright);
   
-backdrop-filter: blur(5px);
+backdrop-filter: blur(5px) !important;
   
 color: var(--almost-black);
   
 border: none;
   
 border-radius: var(--corner-radius);
-  
-overflow: auto;
-  
-/* position: fixed; */
-  
-/* z-index: 1107; */
+}
+#context-menu li.context-item:hover {
+  color: #FFF;
+  text-shadow:none;
+  cursor:pointer;
 }
 
 /*======================hotbar====================*/
 #hotbar,.players-hidden #hotbar{
-  left: calc(50% - 305px);
+  left: calc(50% - 305px) !important;
+  bottom: 10px !important;
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
   width: 610px;
 }
 
@@ -352,34 +358,36 @@ height: 100%;
 
 #hotbar .macro{
   margin: 0 2px 0 2px;
-  border:none;
+  border: none !important;
+  padding: 0;
   height: 100%;
-  box-shadow:none;
-  background: var(--blur-background-thick);
-  border-radius: var(--corner-radius);
-  /* backdrop-filter:blur(15px); */
+  background: var(--blur-background-thick) !important;
+  border-radius: var(--corner-radius) !important;
+  backdrop-filter: blur(15px) !important;
 }
-
+#hotbar .macro .active{
+  color:white !impo;
+}
 #hotbar .macro .macro-icon{
   border-radius: var(--corner-radius);
-  
   margin:0;
-  border:none;
-  width: 52px;
-  height: 52px;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
 }
 #hotbar .macro.inactive{
   box-shadow: var(--drop-shadow);
   border: none;
 }
 #hotbar .macro .macro-key{
-  background: none;
-  color: var(--almost-black);
-  text-shadow: 0 0 4px white;
+  right:0;
+  top:0;
+  border-radius:0px 10px;
+  background: var(--almost-black);
 }
 #hotbar .bar-controls{
-  border: none;
-  background: var(--blur-background-thick);
+  border: none !important;
+  background: var(--blur-background-thick) !important;
   color: var(--almost-black);
   border-radius: 8px;
   box-shadow: none;
@@ -559,7 +567,7 @@ box-shadow: none;
 .window-app{
   border-radius: var(--corner-radius);
   background: none !important;
-  backdrop-filter: blur(var(--blur-amount));
+  backdrop-filter: var(--blur-amount);
   box-shadow: var(--drop-shadow);
   border: none;
 }
@@ -733,17 +741,17 @@ button:hover {
 
 }
 .dnd5e.sheet .sheet-header .summary li,.dnd5e.sheet.actor .sheet-header .attributes .attribute{
-  border-right:1px solid #00000014;
+  border-right:1px solid var(--faintest-color);
 }
 .dnd5e.sheet.actor h4.box-title{
   border:none;
 }
 .dnd5e.sheet.actor .ability-scores,.dnd5e.sheet.actor ul.skills-list{
-  border:1px solid #00000014;
+  border:1px solid var(--faintest-color);
   border-radius: var(--corner-radius);
 }
 .dnd5e.sheet.actor .ability-scores .ability{
-  border-bottom:1px solid #00000014;
+  border-bottom:1px solid var(--faintest-color);
 }
 .dnd5e.sheet .filter-list .filter-item{
   font-size:10pt;
@@ -760,7 +768,7 @@ button:hover {
   border:none;
 }
 .dnd5e.sheet.actor ul.attributes li.attribute{
-  border:1px solid #00000014;
+  border:1px solid var(--faintest-color);
   border-radius: var(--corner-radius);
 }
 
@@ -842,7 +850,7 @@ button:hover {
   background: var(--blur-foreground);
 }
 .dnd5e.sheet.item .sheet-body .item-properties{
-  border-right:1px solid #00000014;
+  border-right:1px solid var(--faintest-color);
 }
 
 /*==================== HUD ==============================*/
@@ -855,7 +863,7 @@ button:hover {
 .placeable-hud input[type="text"]{
   background: var(--blur-background);
   border:none;
-  backdrop-filter:blur(var(--blur-amount));
+  backdrop-filter:var(--blur-amount);
   color: var(--almost-black);
 }
 #token-hud .attribute i.fas{
@@ -907,7 +915,7 @@ button:hover {
   box-shadow: var(--drop-shadow);
   border-radius: var(--corner-radius);
   background:#ffffffa6;
-  backdrop-filter:blur(var(--blur-amount));
+  backdrop-filter:var(--blur-amount);
 }
 .camera-view .player-name{
   border-radius: 0 0 10px 10px;
@@ -937,21 +945,21 @@ button:hover {
   background:#e5b70fd1;
   border: none;
   border-radius: var(--corner-radius);
-  backdrop-filter: blur(var(--blur-amount));
+  backdrop-filter: var(--blur-amount);
   font-size: 12pt;
 }
 .notification.info{
   ackground:#3a6affc4;
   border: none;
   border-radius: var(--corner-radius);
-  backdrop-filter: blur(var(--blur-amount));
+  backdrop-filter: var(--blur-amount);
   font-size: 12pt;
 }
 .notification.error{
   background:#c40e0e8c;
   border: none;
   border-radius: var(--corner-radius);
-  backdrop-filter: blur(var(--blur-amount));
+  backdrop-filter: var(--blur-amount);
   font-size: 12pt;
 }
 
@@ -997,9 +1005,9 @@ button:hover {
 /*=================== CALENDAR/WEATHER =================*/
 
 #calendar-time-container{
-    background:var(--blur-background) !important;
+    background:var(--blur-background-thick) !important;
     border-radius: var(--corner-radius) !important;
-    backdrop-filter:blur(var(--blur-amount));
+    /*backdrop-filter:blur(var(--blur-amount));*/
 }
 .calendar--header{
   background: var(--blur-foreground) !important;
@@ -1074,4 +1082,119 @@ button:hover {
 }
 #tokenbar .token .token-icon{
   box-shadow: none !important;
+}
+#tokenbar .bar-controls .token-movement:not(.disabled):hover {
+  filter:none !important;
+  color:white;
+}
+#tokenbar[movement="free"] .token-movement[data-movement="free"]:not(.disabled) i,
+#tokenbar[movement="none"] .token-movement[data-movement="none"]:not(.disabled) i,
+#tokenbar[movement="combat"] .token-movement[data-movement="combat"]:not(.disabled) i {
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+}
+/*=================== DiCE TRAY =========================*/
+.dice-tray button{
+  color: var(--almost-black) !important;
+  box-shadow:none !important;
+}
+.dice-tray button svg{
+  -webkit-filter:brightness(0.2);
+}
+dice-tray button:hover{
+  color:white;
+}
+.dice-tray input[type="text"]{
+  box-shadow:none !important;
+}
+
+/*==================== CUSTOM HOTBAR ======================*/
+#custom-hotbar{
+  left: calc(50% - 305px) !important;
+  width: 610px !important;
+  bottom: 70px !important;
+  /* z-index: 420 !important; */
+}
+#custom-hotbar:hover{
+  z-index:420 !important;
+}
+#custom-hotbar .bar-controls{
+  border: none !important;
+  background: var(--blur-background-thick) !important;
+  color: var(--almost-black) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(3px);
+}
+#custom-hotbar #custom-macro-list{
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    flex: 0 0 540px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+#custom-hotbar .macro{
+  margin: 0 2px 0 2px !important;
+  border: none !important;
+  padding: 0 !important;
+  height: 100% !important;
+  -webkit-filter:saturate(25%) brightness(1);
+  border-radius: var(--corner-radius) !important;
+  backdrop-filter: blur(15px) !important;
+  box-shadow: var(--drop-shadow) !important;
+}
+#custom-hotbar .macro .custom-macro-key{
+  top: 0 !important;
+  right: 0 !important;
+  margin:0;
+  padding:0;
+  background:var(--almost-black) !important;
+  border-radius:0 10px;
+}
+#custom-hotbar img{
+  width: 100% !important;
+  height: 100% !important;
+  border:none !important;
+  border-radius:inherit;
+  padding:0 !important;
+  margin: 0 !important;
+}
+#custom-hotbar #custom-action-bar{
+  height:100% !important;
+}
+/*========================= COMPACT D&D BEYOND SHEET =============*/
+.dnd5e.sheet.actor.character.cb5es{
+  --color: var(--almost-black) !important;
+  --highlight: var(--accent-color) !important;
+}
+.dnd5e.sheet.actor.character.cb5es .ac-symbol > svg path{
+  fill: var(--blur-foreground) !important;
+}
+.dnd5e.sheet.actor.character.cb5es .attribute{
+  border:none !important;
+}
+.dnd5e.sheet.actor.character.cb5es .ability-score-row > li{
+  border:1px solid var(--faintest-color) !important;
+}
+.dnd5e.sheet.actor.character.cb5es .sheet-sidebar,
+.dnd5e.sheet.actor.character.cb5es .filter-list > :not(:last-child){
+  border:none!important;
+}
+.dnd5e.sheet.actor.character.cb5es .sheet-tab-area{
+  border-top: 1px solid var(--faintest-color) !important;
+}
+.dnd5e.sheet.actor.character.cb5es .items-list .items-header,
+.dnd5e.sheet.actor.character.cb5es .biography article h4{
+  border-bottom:1px solid var(--faintest-color) !important;
+}
+.dnd5e.sheet .items-list .item-controls a:hover{
+  color:white !important;
+}  
+.dnd5e.sheet.actor.character.cb5es .biography article{
+  background: var(--faintest-color);
+  border-radius: var(--corner-radius) !important;
+}
+.dnd5e.sheet.actor ul.attributes{
+  flex:0 0 65px !important;
 }
