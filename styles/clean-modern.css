@@ -1195,6 +1195,3 @@ dice-tray button:hover{
   background: var(--faintest-color);
   border-radius: var(--corner-radius) !important;
 }
-.dnd5e.sheet.actor ul.attributes{
-  flex:0 0 65px !important;
-}
