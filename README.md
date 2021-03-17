@@ -6,5 +6,5 @@ This is my first delve into modifying Foundry so many of the solutions for this 
 # Installation
 Module json: https://raw.githubusercontent.com/OpticalShadows/ACleanModernUI/main/module.json
 
-# Preview:
-![image](https://user-images.githubusercontent.com/8631043/111043897-46ae3880-8413-11eb-87f4-32ed287494a7.png)
+# Preview (Alongside other Modules):
+![image](https://user-images.githubusercontent.com/8631043/111401469-ba647580-869f-11eb-8e52-dfad95740102.png)
