@@ -1,6 +1,6 @@
 :root{
   --accent-color: #416fc6;
-  --blur-amount: saturate(200%) blur(50px);
+  --blur-filter: saturate(200%) blur(50px);
   --corner-radius:15px;
   --almost-black:#1e1e1e;
   --blur-background: #ffffffa8;
@@ -27,7 +27,7 @@ a:hover {
   margin: 0;
   padding: 0;
   background: var(--blur-background);
-  backdrop-filter:var(--blur-amount);  
+  backdrop-filter:var(--blur-filter);  
   border: none;
   border-radius: var(--corner-radius);
   box-shadow: var(--drop-shadow);
@@ -132,8 +132,12 @@ textarea:focus {
 }
 
 #combat li.combatant .token-name .combatant-control{
-  color: var(--almost-black);
+  color: var(--almost-black) !important;
 }
+#combat li.combatant .token-name img.token-effect{
+  filter:invert(1);
+}
+
 #combat li.combatant.active {
     background: var(--blur-foreground);
     font-size:12pt;
@@ -180,7 +184,7 @@ textarea:focus {
   line-height: 50px;
   margin: 5px 10px;
   background: var(--blur-background-thick);
-  /* backdrop-filter: blur(var(--blur-amount)); */
+  /* backdrop-filter: blur(var(--blur-filter)); */
   border-radius: var(--corner-radius);
   box-shadow: var(--drop-shadow);
   border: none;
@@ -474,7 +478,7 @@ input[type="number"],
 input[type="password"], 
 input[type="date"],
 input[type="time"]{
-  border: none !important;
+  /* border: none !important; */
   border-radius: var(--corner-radius);
 }
 input[type="text"]:focus,
@@ -539,7 +543,7 @@ footer{
 /*========================== Players ==================*/
 #players{
   background: var(--blur-background-thick);
-  /*backdrop-filter: blur(var(--blur-amount));*/
+  /*backdrop-filter: blur(var(--blur-filter));*/
   border-radius: var(--corner-radius);
   border: none;
   box-shadow: var(--drop-shadow);
@@ -567,7 +571,7 @@ box-shadow: none;
 .window-app{
   border-radius: var(--corner-radius);
   background: none !important;
-  backdrop-filter: var(--blur-amount);
+  backdrop-filter: var(--blur-filter);
   box-shadow: var(--drop-shadow);
   border: none;
 }
@@ -653,7 +657,7 @@ button:focus {
 }
 #menu{
   background: var(--blur-background);
-  backdrop-filter: blur(var(--blur-amount));
+  backdrop-filter: blur(var(--blur-filter));
   color: var(--almost-black);
   box-shadow: var(--drop-shadow);
 }
@@ -855,16 +859,16 @@ button:hover {
 
 /*==================== HUD ==============================*/
 .placeable-hud .control-icon{
-  background: var(--blur-background);
-  backdrop-filter: blur(var(--blur-amount));
-  color: var(--almost-black);
-  border:none;
+  background: var(--blur-background) !important;
+  backdrop-filter: var(--blur-filter);
+  color: var(--almost-black) !important;
+  border:none !important;
 }
 .placeable-hud input[type="text"]{
-  background: var(--blur-background);
-  border:none;
-  backdrop-filter:var(--blur-amount);
-  color: var(--almost-black);
+  background: var(--blur-background) !important;
+  /* border:none; */
+  backdrop-filter:var(--blur-filter) !important;
+  color: var(--almost-black) !important;
 }
 #token-hud .attribute i.fas{
   color:var(--almost-black);
@@ -875,7 +879,7 @@ button:hover {
   border:none;
   color:  black !important;
   border-radius: var(--corner-radius);
-  /* backdrop-filter: blur(var(--blur-amount))!important; */
+  /* backdrop-filter: blur(var(--blur-filter))!important; */
   box-shadow: var(--drop-shadow);
 }
 .placeable-hud .control-icon img,#token-hud .status-effects .effect-control{
@@ -892,7 +896,7 @@ button:hover {
 #pause{
   background: none;
   z-index: 10;
-  /* backdrop-filter: blur(var(--blur-amount)); */
+  /* backdrop-filter: blur(var(--blur-filter)); */
 }
 #pause img{
   -webkit-animation: rotation 2s infinite cubic-bezier(0, 1, 1, 0);
@@ -915,7 +919,7 @@ button:hover {
   box-shadow: var(--drop-shadow);
   border-radius: var(--corner-radius);
   background:#ffffffa6;
-  backdrop-filter:var(--blur-amount);
+  backdrop-filter:var(--blur-filter);
 }
 .camera-view .player-name{
   border-radius: 0 0 10px 10px;
@@ -945,21 +949,21 @@ button:hover {
   background:#e5b70fd1;
   border: none;
   border-radius: var(--corner-radius);
-  backdrop-filter: var(--blur-amount);
+  backdrop-filter: var(--blur-filter);
   font-size: 12pt;
 }
 .notification.info{
   ackground:#3a6affc4;
   border: none;
   border-radius: var(--corner-radius);
-  backdrop-filter: var(--blur-amount);
+  backdrop-filter: var(--blur-filter);
   font-size: 12pt;
 }
 .notification.error{
   background:#c40e0e8c;
   border: none;
   border-radius: var(--corner-radius);
-  backdrop-filter: var(--blur-amount);
+  backdrop-filter: var(--blur-filter);
   font-size: 12pt;
 }
 
@@ -1007,7 +1011,7 @@ button:hover {
 #calendar-time-container{
     background:var(--blur-background-thick) !important;
     border-radius: var(--corner-radius) !important;
-    /*backdrop-filter:blur(var(--blur-amount));*/
+    /*backdrop-filter:blur(var(--blur-filter));*/
 }
 .calendar--header{
   background: var(--blur-foreground) !important;
