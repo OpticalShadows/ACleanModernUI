@@ -8,3 +8,6 @@ Module json: https://raw.githubusercontent.com/OpticalShadows/ACleanModernUI/mai
 
 # Preview (Alongside other Modules):
 ![image](https://user-images.githubusercontent.com/8631043/111401469-ba647580-869f-11eb-8e52-dfad95740102.png)
+
+# Dark Mode Preview:
+![image](https://user-images.githubusercontent.com/8631043/111920594-32e38180-8a66-11eb-9875-1c6ab41f6116.png)
