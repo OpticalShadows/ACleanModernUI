@@ -1365,6 +1365,9 @@ form .form-group span.units{
     margin: 0 !important;
     padding: 0 !important;
 }
+#custom-hotbar .bar-controls a{
+  background: var(--blur-background-high);
+}
 #custom-hotbar .macro{
   margin: 0 2px 0 2px !important;
   border: none !important;
@@ -1380,7 +1383,6 @@ form .form-group span.units{
   right: 0 !important;
   margin:0;
   padding:0;
-  background:var(--text-color) !important;
   border-radius:0 10px;
 }
 #custom-hotbar img{
