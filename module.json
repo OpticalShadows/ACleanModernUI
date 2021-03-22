@@ -7,8 +7,8 @@
     "compatibleCoreVersion": "0.7.9",
     "minimumCoreVersion": "0.5.0",
     "url": "https://github.com/OpticalShadows/ACleanModernUI",
-    "manifest": "https://raw.githubusercontent.com/OpticalShadows/ACleanModernUI/v0.1.1/module.json",
-    "download": "https://github.com/OpticalShadows/ACleanModernUI/archive/v0.1.1.zip",
+    "manifest": "https://raw.githubusercontent.com/OpticalShadows/ACleanModernUI/main/module.json",
+    "download": "https://github.com/OpticalShadows/ACleanModernUI/archive/archive.zip",
     "styles": [
         "styles/clean-modern.css",
         "styles/clean-modern-dark.css"
