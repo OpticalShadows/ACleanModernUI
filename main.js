@@ -1,7 +1,7 @@
 const MODULE_ID = "a-clean-modern-ui";
 const FULL_BLUR = "saturate(100%) blur(50px)";
 
-const DEFAULT_ACCENT_COLOR = "#396dd1";
+const DEFAULT_ACCENT_COLOR = "#5380d4";
 const DEFAULT_BLUR_LEVEL = "Medium";
 const DEFAULT_CORNER_RADIUS = "15";
 
@@ -12,10 +12,10 @@ const BLUR_FG_BRIGHT_LIGHT_DEFAULT = "#ffffffde"
 const TEXT_COLOR_LIGHT_DEFAULT = "#1e1e1e";
 const TEXT_HEADING_LIGHT_DEFAULT = "black";
 
-const BLUR_BG_DARK_DEFAULT = "#0e0e0ea8";
-const BLUR_BG_THICK_DARK_DEFAULT = "#262626f0";
+const BLUR_BG_DARK_DEFAULT = "#262626db";
+const BLUR_BG_THICK_DARK_DEFAULT = "#2d2d2dfc";
 const BLUR_FG_DARK_DEFAULT = "#212121a3";
-const BLUR_FG_BRIGHT_DARK_DEFAULT = "#171717de"
+const BLUR_FG_BRIGHT_DARK_DEFAULT = "#171717fc"
 const TEXT_COLOR_DARK_DEFAULT = "#d8d8d8";
 const TEXT_HEADING_DARK_DEFAULT = "white";
 
@@ -44,7 +44,7 @@ Pink:#d53ea1
 Green:#008f10
 Purple:#8342db
 Teal:#329f94
-Yellow:#f2ff00
+Yellow:#ffff26
 Mint:#5faa75
 
 ================ LIGHT THEME =============
@@ -123,7 +123,7 @@ function ApplySettings() {
 }
 function GetColor(color) {
     switch (color) {
-        case 0: return "#396dd1"; /* Default blue */
+        case 0: return "#5380d4"; /* Default blue */
             break;
         case 1: return "#cc1919"; /* Red */
             break;
@@ -137,7 +137,7 @@ function GetColor(color) {
             break;
         case 6: return "#329f94"; /* Teal */
             break;
-        case 7: return "#f2ff00"; /* Yellow */
+        case 7: return "#ffff26"; /* Yellow */
             break;
         case 8: return "#5faa75"; /* Mint */
             break;

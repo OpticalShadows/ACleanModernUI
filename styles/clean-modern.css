@@ -73,10 +73,14 @@ a:hover {
   border: none;
   box-shadow: none;
 }
-
+::-webkit-scrollbar-track{
+  border:none;
+  box-shadow:none;
+}
 textarea:focus {
   outline:none;
-  box-shadow: 0 0 10px #fffefd;
+  border: 1px solid var(--accent-color) !important;
+  box-shadow: 0 0 10px var(--accent-color);
 }
 
 /*================chat===============*/
@@ -85,7 +89,7 @@ textarea:focus {
     border: none;
     border-radius: calc(var(--corner-radius) * 0.8);
     margin: 5px;
-    background: var(--blur-foreground-bright);
+    background: var(--blur-foreground);
     background-image: none;
     /* color: white; */
 }
@@ -477,6 +481,7 @@ li.folder > .folder-header{
 .scene-sheet .form-header h3,
 .scene-sheet .form-header{
   border:none;
+  color: var(--text-heading);
 }  
 form .form-group .form-fields button{
   border-radius:8px;
@@ -505,7 +510,7 @@ input[type="number"]:focus,
 input[type="password"]:focus,
 input[type="date"]:focus,
 input[type="time"]:focus {
-  border:none !important;
+  border:1px solid var(--accent-color) !important;
   box-shadow: 0 0 5px var(--accent-color) !important;
 }
 input[type="text"]:hover,
@@ -533,7 +538,7 @@ select{
   border-radius: var(--corner-radius);
 }
 select:focus {
-  box-shadow:0 0 5px 2px white;
+  box-shadow:0 0 5px 2px var(--accent-color);
   outline: none;
 }
 select *{
@@ -571,7 +576,7 @@ input[type="color"][data-edit][data-edit]{
 }
 #settings h2{
   border-top:none;
-  border-bottom: 1px solid var(--text-color);
+  border-bottom: 1px groove var(--blur-foreground);
   background:none;
 }
 
@@ -628,16 +633,14 @@ box-shadow: none;
   background:var(--blur-background-med)
 }
 .window-app .window-header{
-  
-background: var(--blur-foreground-bright);
-  
-border-radius: var(--corner-radius) var(--corner-radius) 0 0;
-  
-color: var(--text-color);
-  
-border: none;
+  background: var(--blur-foreground-bright);
+  border-radius: var(--corner-radius) var(--corner-radius) 0 0;
+  color: var(--text-color); 
+  border: none;
 }
-
+.window-app .window-header a:hover{
+  color:var(--accent-color);
+}
 .window-app .window-content{
   background: var(--blur-background-low);
   border-radius: 0 0 var(--corner-radius) var(--corner-radius);
@@ -657,13 +660,14 @@ color: var(--text-color);
 }
 
 button{
-  background: var(--blur-foreground) !important;
+  background: var(--blur-foreground-bright) !important;
   border: none !important;
   border-radius: var(--corner-radius);
   color: var(--text-color) !important;
 }
 button:hover,
 button:focus {
+  border:1px solid var(--accent-color) !important;
   outline: none !important;
   box-shadow: none !important;
   background: var(--blur-foreground-bright) !important;
@@ -827,7 +831,9 @@ form .form-group span.units{
     margin-bottom: 5px;
     border-radius:var(--corner-radius);
     color: var(--text-color);
+    background: var(--blur-foreground-bright);
     border: none;
+    box-shadow: none;
 }
 .dice-tooltip .part-header .part-total{
   border:none;
@@ -835,7 +841,9 @@ form .form-group span.units{
 .dice-roll .dice-total {
     border-radius:var(--corner-radius);
     border: none;
+    box-shadow: none;
     flex: 0;
+    background: var(--blur-foreground-bright);
     font-size: 20px;
     font-weight: bold;
 }
@@ -904,7 +912,8 @@ form .form-group span.units{
   border-radius: var(--corner-radius);
 }
 .dnd5e.sheet.actor.character .characteristics textarea{
-  background: var(--blur-foreground-bright);
+  background: var(--blur-foreground);
+  color: var(--text-color);
   border:none;
 }
 .dnd5e.sheet.actor .encumbrance{
@@ -955,7 +964,7 @@ form .form-group span.units{
 .dnd5e.sheet .filter-list .filter-item:hover,
 .dnd5e.sheet .sheet-navigation .item:hover{
   text-shadow:none;
-  color: white;
+  color: var(--accent-color);
   cursor:pointer;
 }
 .dnd5e.sheet .items-list .item .item-name .item-image{
@@ -967,7 +976,7 @@ form .form-group span.units{
 }
 .dnd5e.sheet .editable h4.rollable:hover,
 .dnd5e.sheet .editable .rollable:hover > h4 {
-  color: var(--blur-foreground-bright);
+  color: var(--accent-color) !important;
   text-shadow: none;
 }
 .dnd5e.sheet .sheet-navigation .item{
@@ -1039,7 +1048,7 @@ form .form-group span.units{
 }
 
 #pause{
-  background: none;
+  background: radial-gradient(var(--accent-color), transparent);
   z-index: 10;
 }
 
@@ -1272,7 +1281,7 @@ form .form-group span.units{
 }
 #tokenbar .token .token-stats{
   background: none !important;
-  filter:brightness(0);
+  filter: var(--icon-invert);
 }
 #tokenbar .token-list{
   border:none !important;
@@ -1296,8 +1305,8 @@ form .form-group span.units{
 #tokenbar[movement="free"] .token-movement[data-movement="free"]:not(.disabled) i,
 #tokenbar[movement="none"] .token-movement[data-movement="none"]:not(.disabled) i,
 #tokenbar[movement="combat"] .token-movement[data-movement="combat"]:not(.disabled) i {
-    color: #ffffff !important;
-    border: 1px solid #ffffff !important;
+    color: var(--accent-color) !important;
+    border: 1px solid var(--accent-color) !important;
 }
 #token-hud.monks-little-details .status-effects .effect-control.active, 
 #token-hud.monks-little-details .status-effects .pf2e-effect-control.active{
@@ -1315,16 +1324,21 @@ form .form-group span.units{
   color: var(--text-color) !important;
   box-shadow:none !important;
 }
-.dice-tray button svg{
-  -webkit-filter:brightness(0.2);
+.dice-tray button svg *{
+  fill:var(--text-color) !important;
 }
-dice-tray button:hover{
-  color:white;
+.dice-tray button:hover svg *{
+    fill:var(--accent-color) !important;
+    border:none;
 }
 .dice-tray input[type="text"]{
   box-shadow:none !important;
 }
-
+.dice-tray input[type="text"]:hover, .dice-tray input[type="text"]:focus {
+  box-shadow: 0 0 4px var(--accent-color) !important;
+  -webkit-box-shadow:none;
+  border:1px solid var(--accent-color) !important;
+}
 /*==================== CUSTOM HOTBAR ======================*/
 #custom-hotbar{
   left: calc(50% - 305px) !important;
@@ -1415,3 +1429,4 @@ dice-tray button:hover{
   background: var(--faintest-color);
   border-radius: var(--corner-radius) !important;
 }
+
