@@ -1367,6 +1367,7 @@ form .form-group span.units{
 }
 #custom-hotbar .bar-controls a{
   background: var(--blur-background-high);
+  border-radius: 8px;
 }
 #custom-hotbar .macro{
   margin: 0 2px 0 2px !important;
