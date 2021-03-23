@@ -6,9 +6,9 @@ const DEFAULT_BLUR_LEVEL = "Medium";
 const DEFAULT_CORNER_RADIUS = "15";
 
 const BLUR_BG_LIGHT_DEFAULT = "#ffffffa8";
-const BLUR_BG_THICK_LIGHT_DEFAULT = "#bdbdbdf0";
+const BLUR_BG_THICK_LIGHT_DEFAULT = "#d2d2d2fa";
 const BLUR_FG_LIGHT_DEFAULT = "#ffffffa3";
-const BLUR_FG_BRIGHT_LIGHT_DEFAULT = "#ffffffde"
+const BLUR_FG_BRIGHT_LIGHT_DEFAULT = "#ffffff"
 const TEXT_COLOR_LIGHT_DEFAULT = "#1e1e1e";
 const TEXT_HEADING_LIGHT_DEFAULT = "black";
 
@@ -101,25 +101,40 @@ Hooks.on("init", function () {
         config: true,
         range: { min: 5, max: 20, step: 1 }
     });
+    game.settings.register(MODULE_ID, "HideNav", {
+        name: "Hide Navigation",
+        hint: "Collapse the navigation bar by default",
+        default: false,
+        type: Boolean,
+        scope: 'client',
+        config: true
+    });
     ApplySettings();
+
+});
+
+Hooks.on("ready", function () {
+    if (!game.settings.get(MODULE_ID, "HideNav"))
+        return;
+    collapse("nav-toggle")
 });
 
 Hooks.on("closeSettingsConfig", function () {
     ApplySettings();
 });
 
-function ApplyDefaults() {
-    let root = document.documentElement;
-    root.style.setProperty("--accent-color", DEFAULT_ACCENT_COLOR);
-    SetBlur(DEFAULT_BLUR_LEVEL);
-    root.style.setProperty("--corner-radius", DEFAULT_CORNER_RADIUS);
-}
 function ApplySettings() {
     let root = document.documentElement;
     root.style.setProperty("--accent-color", GetColor(game.settings.get(MODULE_ID, "AccentColor")));
     root.style.setProperty("--corner-radius", game.settings.get(MODULE_ID, "Corners") + "px");
     SetTheme();
     SetBlur();
+}
+function collapse(toggleId) {
+    let target = document.getElementById(toggleId);
+    if (target) {
+        target.click();
+    }
 }
 function GetColor(color) {
     switch (color) {
