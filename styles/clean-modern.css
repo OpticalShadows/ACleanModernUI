@@ -506,6 +506,7 @@ input[type="date"],
 input[type="time"]{
   /* border: none !important; */
   color: var(--text-color) !important;
+  background: var(--blur-foreground) !important;
   border-radius: var(--corner-radius);
 }
 input[type="text"]:focus,
@@ -537,6 +538,7 @@ input[type="range"] + .range-value{
 }
 select{
   border:none;
+  background: var(--blur-foreground) !important;
   color: var(--text-color);
   border-radius: var(--corner-radius);
 }
@@ -545,7 +547,8 @@ select:focus {
   outline: none;
 }
 select *{
-  color:black;
+  background:var(--blur-background-low);
+  color: var(--text-color);
 }
 input[type="color"][data-edit][data-edit]{
   border:none;
@@ -617,10 +620,9 @@ footer{
 }
 /*==========================   App Window =============*/
 .app{
-  
-background: none;
-  
-box-shadow: none;
+  background: none;
+  box-shadow: none;
+  color:var(--text-color);
 }
 .window-app{
   border-radius: var(--corner-radius);
@@ -770,7 +772,10 @@ form .form-group label{
 form .form-group span.units{
   color: var(--text-color);
 }
-
+a.entity-link, a.inline-roll{
+  background:var(--blur-foreground-bright);
+  color:var(--text-color);
+}
 /*===================== D&D SPECIFIC =================*/
 
 .dnd5e.chat-card {
@@ -1493,4 +1498,50 @@ form .form-group span.units{
 .tabbedchatlog .item.active{
   border:none !important;
   box-shadow: none !important;
+}
+
+/*================ QUEST LOG ===============*/
+#forien-quest-log .quest-log.bookmarks nav .item{
+  background: var(--blur-foreground-bright) !important;
+}
+#forien-quest-log .editor, 
+#forien-quest-log-form .editor, 
+.window-app.forien-quest-preview .editor{
+  background: var(--blur-foreground) !important;
+}
+
+/*=================== QUICK INSERT ===========*/
+.quick-insert .search-editable-input,
+.quick-insert-result {
+  background:none !important;
+  backdrop-filter: var(--blur-filter-high);
+  border:none !important;
+  border-radius: var(--corner-radius);
+  color: var(--text-color) !important;
+}
+.quick-insert{
+  background: var(--blur-background-med) !important;
+  bottom: calc(50vh - 25%) !important;
+  border:none !important;
+  border-radius: var(--corner-radius) !important;
+}
+
+.quick-insert .search-selected a,
+.quick-insert-result li a:hover {
+  background: var(--blur-foreground-bright) !important;
+  text-shadow: none;
+}
+.quick-insert-result li a i.action-icon{
+  color:var(--text-color) !important;
+}
+/*========= BLOOD n GUTS =========*/
+#brush-controls{
+  top: 10px !important;
+  margin: 0 0 0 10px;
+  background: var(--blur-foreground-bright);
+  padding:10px;
+  border-radius: var(--corner-radius);
+}
+#brush-controls h3, #brush-controls .label{
+  color:var(--text-color) !important;
 }
