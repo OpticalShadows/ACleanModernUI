@@ -506,7 +506,7 @@ input[type="date"],
 input[type="time"]{
   /* border: none !important; */
   color: var(--text-color) !important;
-  background: var(--blur-foreground) !important;
+  /* background: var(--blur-foreground) !important; */
   border-radius: var(--corner-radius);
 }
 input[type="text"]:focus,
@@ -1509,7 +1509,9 @@ a.entity-link, a.inline-roll{
 .window-app.forien-quest-preview .editor{
   background: var(--blur-foreground) !important;
 }
-
+#forien-quest-log input[type="text"], #forien-quest-log-form input[type="text"], .window-app.forien-quest-preview input[type="text"]{
+  background: var(--blur-foreground) !important;
+}
 /*=================== QUICK INSERT ===========*/
 .quick-insert .search-editable-input,
 .quick-insert-result {
