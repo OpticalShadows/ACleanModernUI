@@ -1388,6 +1388,9 @@ form .form-group span.units{
   backdrop-filter: blur(15px) !important;
   box-shadow: var(--drop-shadow) !important;
 }
+#custom-hotbar .macro.active{
+    -webkit-filter:none !important;
+}
 #custom-hotbar .macro .custom-macro-key{
   top: 0 !important;
   right: 0 !important;
