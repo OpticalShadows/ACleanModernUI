@@ -26,6 +26,9 @@ a:hover {
   color: var(--blur-foreground-bright);
   text-shadow:none;
 }
+body{
+  font-family: Verdana;
+}
 /* ============================ SIDEBAR ============= */
 #sidebar{
   top: 10px !important;
@@ -241,17 +244,11 @@ textarea:focus {
 }
 /*==================== NVAVIGATION ================*/
 #navigation{
-  align-items: center;
   top: 0;
-  margin: 0;
-  padding: 0;
-  position: absolute;
   left: 50%;
   transform: translate(-50%,0);
   max-width: 50%;
-  flex-wrap: nowrap;
-  /* display: flex; */
-  flex-direction: column-reverse;
+  flex-direction: row-reverse;
   pointer-events: all;
 }
 
@@ -261,19 +258,21 @@ textarea:focus {
   padding: 0;
 }
 #navigation #scene-list{
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill,minmax(120px,1fr));
-  align-items: center;
-  width: 100%;
+  background: var(--blur-background-high);
+  backdrop-filter: var(--blur-filter-high);
+  padding: 0 5px;
+  max-height: 300px;
+  overflow-y: scroll;
+  border-radius: 0 0 var(--corner-radius) var(--corner-radius);
 }
 #navigation #nav-toggle{
-  margin: 0;
-  top: 20px;
+  margin: 0 10px;
+  float: right;
   width: 60px;
   font-size: 20pt;
   color: var(
   --text-color);
-  height: 20px;
+  height: 30px;
   flex: 0 0 20px;
   line-height: 0;
   border-radius: 4px 4px 8px 8px;
@@ -281,12 +280,8 @@ textarea:focus {
   backdrop-filter: var(--blur-filter-high);
 }
 #navigation.collapsed #nav-toggle{
-  margin:0;
   top: 0;
-  /* left: 0; */
-  height:100%;
-  /* line-height: 1.7 !important; */
-  
+  height: 30px;
 }
 #navigation #nav-toggle:hover{
   text-shadow:0 0 10px white;
@@ -294,32 +289,30 @@ textarea:focus {
 }
 #navigation .nav-item{
   width: 120px;
+  height: 130px;
   box-shadow: var(--drop-shadow);
-  height: 30px;
-  font-size: 9pt;
+  font-size: 12pt;
   text-align: center;
-  flex-wrap: nowrap;
-  margin: 5px 10px;
-  white-space:nowrap;
+  margin: 10px 5px;
   border: none !important;
   border-radius: 10px;
-  background: var(--blur-background-high) !important;
+  background: var(--blur-foreground);
   color: var(--text-color);
   font-weight: 700;
   backdrop-filter: var(--blur-filter-high);
+}#navigation #scene-list .scene.gm{
+  background: var(--blur-foreground-bright);
 }
 #navigation #scene-list .scene a:hover{
   color: var(--accent-color) !important;
 }
 #navigation #scene-list .scene:last-child{
-  margin:5px 10px;
 }
 #navigation #scene-list .scene.view, #navigation #scene-list .scene.context{
   box-shadow:0 0 4px var(--accent-color);
 }
 #navigation #scene-list .scene.view, #navigation #scene-list .scene.context{
   color: var(--accent-color);
-  white-space:nowrap;
   /* overflow: auto; */
 }
 #navigation #scene-list .scene ul.scene-players{
@@ -329,7 +322,7 @@ textarea:focus {
 #navigation #scene-list .scene a{
   width:120px;
   box-sizing: content-box;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #context-menu{
@@ -644,7 +637,7 @@ footer{
 .window-app .window-header{
   background: var(--blur-foreground-bright);
   border-radius: var(--corner-radius) var(--corner-radius) 0 0;
-  color: var(--text-color); 
+  color: var(--text-color);
   border: none;
 }
 .window-app .window-header a:hover{
@@ -653,6 +646,7 @@ footer{
 .window-app .window-content{
   background: var(--blur-background-low);
   border-radius: 0 0 var(--corner-radius) var(--corner-radius);
+  height: 100%;
   border: none;
 }
 .window-app .window-resizable-handle{
@@ -667,7 +661,13 @@ color: var(--text-color);
 #settings #game-details{
   color: var(--text-color);
 }
-
+.tab[data-tab].active{
+  height: 817px;
+  overflow: auto;
+}
+#client-settings section.content .settings-list{
+  overflow:revert;
+}
 button{
   background: var(--blur-foreground-bright) !important;
   border: none !important;
@@ -683,6 +683,7 @@ button:focus {
 #client-settings{
   /* min-height:50vh !important; */
   /* height: 69vh !important; */
+  max-height: 70%;
 }
 #client-settings nav.tabs{
   border:none;
