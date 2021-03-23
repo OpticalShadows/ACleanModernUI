@@ -15,7 +15,7 @@
   --background-opposite: #171717de;
   --icon-invert: invert(1);
   --drop-shadow: 0 0 9px #0000006e;
-  --faintest-color: #00000014;
+  --barely-visible: #0000004a;
   --control-tools-fix: -5px;
 }
 
@@ -308,8 +308,8 @@ textarea:focus {
   font-weight: 700;
   backdrop-filter: var(--blur-filter-high);
 }
-#navigation .nav-item:hover{
-  
+#navigation #scene-list .scene a:hover{
+  color: var(--accent-color) !important;
 }
 #navigation #scene-list .scene:last-child{
   margin:5px 10px;
@@ -476,7 +476,10 @@ li.folder > .folder-header{
 #scenes .scene h3{
   text-shadow:none;
   font-size: 18pt;
-  color: var(--text-color);
+  color: var(--blur-background-thick);
+}
+#scenes .scene:hover{
+  box-shadow:0 0 1px 2px var(--accent-color);
 }
 .scene-sheet .form-header h3,
 .scene-sheet .form-header{
@@ -552,6 +555,10 @@ input[type="color"][data-edit][data-edit]{
 #journal li.journal .entity-name,.sidebar-tab .directory-list .directory-item h3, 
 .sidebar-tab .directory-list .directory-item h4{
   color: var(--text-color);
+}
+
+.sidebar-tab .directory-list .directory-item h4 a:hover{
+  color:var(--accent-color);
 }
 
 #playlists li.playlist .playlist-header{
@@ -667,9 +674,7 @@ button{
 }
 button:hover,
 button:focus {
-  border:1px solid var(--accent-color) !important;
-  outline: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 1px 2px var(--accent-color) !important;
   background: var(--blur-foreground-bright) !important;
   cursor:pointer;
 }
@@ -760,7 +765,7 @@ a[href]{
   color: var(--text-color) !important;
 }
 form .form-group label{
-  color:var(--text-heading);
+  color: var(--text-heading) !important;
 }
 form .form-group span.units{
   color: var(--text-color);
@@ -879,17 +884,17 @@ form .form-group span.units{
 
 }
 .dnd5e.sheet .sheet-header .summary li,.dnd5e.sheet.actor .sheet-header .attributes .attribute{
-  border-right:1px solid var(--faintest-color);
+  border-right:1px solid var(--barely-visible);
 }
 .dnd5e.sheet.actor h4.box-title{
   border:none;
 }
 .dnd5e.sheet.actor .ability-scores,.dnd5e.sheet.actor ul.skills-list{
-  border:1px solid var(--faintest-color);
+  border:1px solid var(--barely-visible);
   border-radius: var(--corner-radius);
 }
 .dnd5e.sheet.actor .ability-scores .ability{
-  border-bottom:1px solid var(--faintest-color);
+  border-bottom:1px solid var(--barely-visible);
 }
 .dnd5e.sheet .filter-list .filter-item{
   font-size:10pt;
@@ -908,7 +913,7 @@ form .form-group span.units{
   box-shadow: 0 0 2px var(--accent-color) !important;
 }
 .dnd5e.sheet.actor ul.attributes li.attribute{
-  border:1px solid var(--faintest-color);
+  border:1px solid var(--barely-visible);
   border-radius: var(--corner-radius);
 }
 .dnd5e.sheet.actor.character .characteristics textarea{
@@ -1001,7 +1006,7 @@ form .form-group span.units{
   background: var(--blur-foreground);
 }
 .dnd5e.sheet.item .sheet-body .item-properties{
-  border-right:1px solid var(--faintest-color);
+  border-right:1px solid var(--barely-visible);
 }
 .dnd5e.sheet.actor.character .inventory .item-controls .item-toggle, .dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle{
   color: grey;
@@ -1205,7 +1210,11 @@ form .form-group span.units{
   fill:var(--text-color) !important;
 }
 
-
+.system-dnd5e{
+  --primary-font: var(--text-color) !important;
+  --secondary-color: var(--text-color) !important;
+  --primary-accent: var(--accent-color) !important;
+}
 /*=================== CALENDAR/WEATHER =================*/
 
 #calendar-time-container{
@@ -1412,23 +1421,73 @@ form .form-group span.units{
   border:none !important;
 }
 .dnd5e.sheet.actor.character.cb5es .ability-score-row > li{
-  border:1px solid var(--faintest-color) !important;
+  border:1px solid var(--barely-visible) !important;
 }
 .dnd5e.sheet.actor.character.cb5es .sheet-sidebar,
 .dnd5e.sheet.actor.character.cb5es .filter-list > :not(:last-child){
   border:none!important;
 }
 .dnd5e.sheet.actor.character.cb5es .sheet-tab-area{
-  border-top: 1px solid var(--faintest-color) !important;
+  border-top: 1px solid var(--barely-visible) !important;
 }
 .dnd5e.sheet.actor.character.cb5es .items-list .items-header,
 .dnd5e.sheet.actor.character.cb5es .biography article h4{
-  border-bottom:1px solid var(--faintest-color) !important;
+  border-bottom:1px solid var(--barely-visible) !important;
 }
 .dnd5e.sheet .items-list .item-controls a:hover{
   color:white !important;
 }  
 .dnd5e.sheet.actor.character.cb5es .biography article{
-  background: var(--faintest-color);
+  background: var(--barely-visible);
   border-radius: var(--corner-radius) !important;
+}
+
+
+/*=========== CONTROLS CONCEALER ============== */
+#control-concealer{
+  position:fixed;
+  top: 10px;
+  left: 130px;
+}
+.control-concealer-tab{
+  width: 36px !important;
+  height:36px !important;
+  border:none !important;
+  background: var(--blur-foreground-bright) !important;
+  color:var(--text-color) !important;
+  line-height: 36px !important;
+  font-size: 14pt !important;
+}
+.control-concealer-tab.active {
+  border: 1px solid var(--accent-color) !important;
+  box-shadow: 0 0 10px var(--accent-color) !important;
+  color:var(--accent-color) !important;
+  font-weight: 900;
+}
+
+/*==============GM SCREEN =====================*/
+.gm-screen-app.gm-screen-drawer{
+  width: calc(var(--gm-screen-width) / 100 * (100vw - var(--gm-screen-right-offset) - var(--sidebar-width) - 10px)) !important;
+  right: auto !important;
+  left:0px;
+}
+.gm-screen-app .gm-screen-container{
+  border-radius: var(--corner-radius) !important;
+  backdrop-filter: none;
+}
+.gm-screen-app .gm-screen-grid-cell{
+  border-radius: var(--corner-radius) !important;
+}
+.gm-screen-app .gm-screen-actions button:hover {
+  text-shadow:0 0 10px var(--accent-color) !important;
+  border:none;
+}
+/*================= TABBED CHAT LOG =========*/
+.tabbedchatlog.tabs{
+  border-bottom:1px solid var(--barely-visible) !important;
+  box-shadow: none !important;
+}
+.tabbedchatlog .item.active{
+  border:none !important;
+  box-shadow: none !important;
 }
