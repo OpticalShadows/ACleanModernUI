@@ -262,7 +262,6 @@ textarea:focus {
   backdrop-filter: var(--blur-filter-high);
   padding: 0 5px;
   max-height: 300px;
-  overflow-y: scroll;
   border-radius: 0 0 var(--corner-radius) var(--corner-radius);
 }
 #navigation #nav-toggle{
@@ -289,7 +288,6 @@ textarea:focus {
 }
 #navigation .nav-item{
   width: 120px;
-  height: 130px;
   box-shadow: var(--drop-shadow);
   font-size: 12pt;
   text-align: center;
