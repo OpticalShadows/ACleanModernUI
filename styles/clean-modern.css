@@ -261,8 +261,7 @@ textarea:focus {
   background: var(--blur-background-high);
   backdrop-filter: var(--blur-filter-high);
   padding: 0 5px;
-  max-height: 300px;
-  overflow-y: scroll;
+  /* max-height: 150px; */
   border-radius: 0 0 var(--corner-radius) var(--corner-radius);
 }
 #navigation #nav-toggle{
@@ -301,7 +300,7 @@ textarea:focus {
   font-weight: 700;
   backdrop-filter: var(--blur-filter-high);
 }#navigation #scene-list .scene.gm{
-  background: var(--blur-foreground-bright);
+  background: var(--blur-foreground);
 }
 #navigation #scene-list .scene a:hover{
   color: var(--accent-color) !important;
@@ -336,6 +335,10 @@ color: var(--text-color);
 border: none;
   
 border-radius: var(--corner-radius);
+  
+/* position: sticky; */
+  
+/* width: auto; */
 }
 #context-menu li.context-item:hover {
   color: #FFF;
@@ -497,9 +500,9 @@ input[type="number"],
 input[type="password"], 
 input[type="date"],
 input[type="time"]{
-  /* border: none !important; */
+  border: none !important;
   color: var(--text-color) !important;
-  /* background: var(--blur-foreground) !important; */
+  background: var(--blur-foreground) !important;
   border-radius: var(--corner-radius);
 }
 input[type="text"]:focus,
@@ -644,7 +647,7 @@ footer{
   color:var(--accent-color);
 }
 .window-app .window-content{
-  background: var(--blur-background-low);
+  background: var(--blur-background-low) !important;
   border-radius: 0 0 var(--corner-radius) var(--corner-radius);
   height: 100%;
   border: none;
@@ -1338,6 +1341,9 @@ a.entity-link, a.inline-roll{
 .dice-tray button{
   color: var(--text-color) !important;
   box-shadow:none !important;
+}
+.dice-tray button:hover{
+  background:var(--accent-color) !important;
 }
 .dice-tray button svg *{
   fill:var(--text-color) !important;
