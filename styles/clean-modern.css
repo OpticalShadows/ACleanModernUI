@@ -665,7 +665,7 @@ color: var(--text-color);
   color: var(--text-color);
 }
 .tab[data-tab].active{
-  height: 817px;
+  height: 100%;
   overflow: auto;
 }
 #client-settings section.content .settings-list{
@@ -686,7 +686,7 @@ button:focus {
 #client-settings{
   /* min-height:50vh !important; */
   /* height: 69vh !important; */
-  max-height: 70%;
+  /* max-height: 70%; */
 }
 #client-settings nav.tabs{
   border:none;
