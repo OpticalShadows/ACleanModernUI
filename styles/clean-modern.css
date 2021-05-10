@@ -245,10 +245,10 @@ textarea:focus {
 /*==================== NVAVIGATION ================*/
 #navigation{
   top: 0;
-  left: 50%;
-  transform: translate(-50%,0);
-  max-width: 50%;
-  flex-direction: row-reverse;
+  /* left: 50%; */
+  /* transform: translate(-50%,0); */
+  /* max-width: 50%; */
+  /* flex-direction: row-reverse; */
   pointer-events: all;
 }
 
@@ -258,11 +258,16 @@ textarea:focus {
   padding: 0;
 }
 #navigation #scene-list{
-  background: var(--blur-background-high);
-  backdrop-filter: var(--blur-filter-high);
+  display: inline-flex;
+  /* background: var(--blur-background-high); */
+  /* backdrop-filter: var(--blur-filter-high); */
   padding: 0 5px;
-  /* max-height: 150px; */
+  /* max-height: 156px; */
+  /* overflow-y: auto; */
+  /* overflow-x: scroll; */
   border-radius: 0 0 var(--corner-radius) var(--corner-radius);
+  flex-flow: nowrap;
+  flex-direction: row;
 }
 #navigation #nav-toggle{
   margin: 0 10px;
@@ -271,7 +276,7 @@ textarea:focus {
   font-size: 20pt;
   color: var(
   --text-color);
-  height: 30px;
+  /* height: 30px; */
   flex: 0 0 20px;
   line-height: 0;
   border-radius: 4px 4px 8px 8px;
@@ -287,11 +292,11 @@ textarea:focus {
   color:white;
 }
 #navigation .nav-item{
-  width: 120px;
-  height: 130px;
+  /* width: 120px; */
+  /* height: 130px; */
   box-shadow: var(--drop-shadow);
-  font-size: 12pt;
-  text-align: center;
+  /* font-size: 12pt; */
+  /* text-align: center; */
   margin: 10px 5px;
   border: none !important;
   border-radius: 10px;
@@ -1275,6 +1280,10 @@ a.entity-link, a.inline-roll{
   background: var(--blur-foreground);
   box-shadow:none !important;
 }
+.simple-dice-roller-popup .sdr-col1{
+width: 130px !important;  
+}
+
 
 /*================= Monks Modules ============= */
 #tokenbar .bar-controls{
